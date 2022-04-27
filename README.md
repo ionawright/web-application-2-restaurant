@@ -11,6 +11,9 @@ This repo is primary for the web application and will use:
 
 ## HOW TO RUN THE PROJECT
 
+`npm init`
+
+
 ## HOW TO RUN UNIT TESTS
 
 ## HOW TO RUN ACCEPTANCE TESTS

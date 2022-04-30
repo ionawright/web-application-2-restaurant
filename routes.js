@@ -9,8 +9,8 @@ router.get('/', function(req, res) {
 router.get('/about', controller.about_page);
 router.get('/contact', controller.contact_page);
 router.get('/news', controller.news_page);
-// router.get('/menu/lunch');
-// router.get('/menu/dinner');
+router.get('/menu-lunch', controller.lunch_page);
+router.get('/menu-dinner', controller.dinner_page);
 
 // router.get('/login');
 // router.post('/add-dish', controller.post_new_entry);

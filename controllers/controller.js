@@ -4,7 +4,6 @@ const db = new restaurantDAO();
 
 const { redirect } = require("express/lib/response");
 
- 
 // db.init();
 
 exports.about_page = function(req, res) {
@@ -13,6 +12,17 @@ exports.about_page = function(req, res) {
     })
 };
 
+exports.lunch_page = function(req, res) {
+    res.render('menu-lunch', {
+        'title': 'Lunch Menu'
+    })
+};
+
+exports.dinner_page = function(req, res) {
+    res.render('menu-dinner', {
+        'title': 'Dinner Menu'
+    })
+};
 
 exports.news_page = function(req, res) {
     res.render('news', {

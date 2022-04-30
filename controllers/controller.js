@@ -1,9 +1,27 @@
 // determines what response to send back to a user when a user makes a browser request.
-// const restaurantDAO = require('../model/model');
-// const db = new restaurantDAO();
+const restaurantDAO = require('../models/model');
+const db = new restaurantDAO();
+
+const { redirect } = require("express/lib/response");
+
  
 // db.init();
 
-// exports.home_page = function(req, res) {
-//     res.send('<h1>Yipeee! Here is the restaurant web app</h1>');
-// }
+exports.about_page = function(req, res) {
+    res.render('about', {
+        'title': 'About Us',
+    })
+};
+
+
+exports.news_page = function(req, res) {
+    res.render('news', {
+        'title': 'News'
+    })
+};
+
+exports.contact_page = function(req, res) {
+    res.render('contact', {
+        'title': 'Contact Us'
+    })
+};

@@ -1,18 +1,18 @@
 const express = require('express');
 const router = express.Router();
-// const controller = require('./controller/controller');
+const controller = require('./controllers/controller');
 
 router.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, './public/index.html'))
 });
-// router.get("/", controller.home_page);
-// router.get('/login');
-// router.get('/about');
-// router.get('/contact');
-// router.get('/news');
+
+router.get('/about', controller.about_page);
+router.get('/contact', controller.contact_page);
+router.get('/news', controller.news_page);
 // router.get('/menu/lunch');
 // router.get('/menu/dinner');
 
+// router.get('/login');
 // router.post('/add-dish', controller.post_new_entry);
 // router.post('/edit-dish');
 // router.post('/add-blog-post');

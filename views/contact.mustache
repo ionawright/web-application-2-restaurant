@@ -20,54 +20,61 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Menus</a></li>
-                            <ul>
-                                <li class="nav-item"><a href="/menu/lunch">Lunch</a></li>
-                                <li class="nav-item"><a href="/menu/dinner">Dinner</a></li>
-                            </ul>
+                        <li class="nav-item"><a class="nav-link" href="#!">Menus</a></li>
+                        <!-- <ul>
+                            <li class="nav-item"><a href="#!">Lunch</a></li>
+                            <li class="nav-item"><a href="#!">Dinner</a></li>
+                        </ul> -->
                         </li>
                         <li>
                         <li class="nav-item"><a class="nav-link" href="/news">News</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <header class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
-            <div class="text-center my-5" style="height: 40rem">
-                <h1 class="text-white fs-3 fw-bolder">Homepage</h1>
-                <p class="text-white-50 mb-0">paragraph section</p>
+        <section class="py-5">
+            <div class="container my-5" style="height: 40rem">
+                <div class="row justify-content">
+                    <div class="col-lg-6">
+                        <h2>{{title}}</h2>
+                        </br>
+                        </br>
+                        <p class="lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        </br>
+                        </br>
+                        <form action="/action_page.php">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name"><br><br>
+                            
+                            <label for="email">Email:</label>
+                            <input type="text" id="email" name="email"><br><br>
+
+                            <label for="message">Message:</label>
+                            <input type="text" id="message" name="message"><br><br>
+                            
+                            <input type="submit" value="Submit">
+                        </form> 
+                        </br>
+                        </br>
+                        <p class="lead">Call us on 0121 111 2222</p>
+                        <p class="mb-0">123 Sample Street</p>
+                        <p class="mb-0">Edinburgh</p>
+                        <p class="mb-0">EH1 4FF</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <p><<<<MAP GOES HERE>>></p>
+                    </div>
+                </div>
             </div>
-        </header>
+        </section>
 
         <section class="py-5">
             <div class="container my-5">
                 <div class="row justify-content">
-                    <div class="col-lg-6" style="height: 40rem">
-                        <h2>Heading</h2>
-                        <p class="lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                        <p class="mb-0">It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum..</p>
-                    </div>
                 </div>
             </div>
         </section>
-
-        <div class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/4ulffa6qoKA/1200x800')">
-            <div style="height: 40rem"></div>
-        </div>
-
-        <section class="py-5">
-            <div class="container my-5">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6">
-                        <h2>Heading 2</h2>
-                        <p class="lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                        <p class="mb-0">It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum..</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
 
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-white">Copyright &copy; Iona Wright 2022</p></div>

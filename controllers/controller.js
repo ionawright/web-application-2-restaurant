@@ -35,3 +35,9 @@ exports.contact_page = function(req, res) {
         'title': 'Contact Us'
     })
 };
+
+exports.login_page = function(req, res) {
+    res.render('login', {
+        'title': 'Login'
+    })
+};

@@ -16,7 +16,7 @@ app.engine('mustache', mustache());
 app.set('view engine', 'mustache');
 
 const router = require('./routes');
-app.use('/', router); 
+app.use('/', router);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () =>

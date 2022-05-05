@@ -12,7 +12,8 @@ router.get('/news', controller.news_page);
 router.get('/menu-lunch', controller.lunch_page);
 router.get('/menu-dinner', controller.dinner_page);
 
-// router.get('/login');
+
+router.get('/login', controller.login_page);
 // router.post('/add-dish', controller.post_new_entry);
 // router.post('/edit-dish');
 // router.post('/add-blog-post');

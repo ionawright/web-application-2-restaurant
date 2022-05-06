@@ -42,18 +42,54 @@ exports.login_page = function(req, res) {
     })
 };
 
-exports.dish_page = function(req, res) {
+// exports.post_login_entry = function(req, res) {
+//     console.log('processing post_login_entry controller');
+//     if (!req.body.username || req.body.password) {
+//         response.status(400).send("Entries must have a request.");
+//         return;
+//     }
+//     db.addUsers(req.body.username, req.body.password);
+//     res.redirect('/');
+// };
+
+exports.admin_page = function(req, res) {
+    db.getAllEntries()
+        .then((list) => {
+            res.render('admin', {
+                'title': 'Admin',
+                'admin': list
+            });
+            console.log('promise resolved');
+        })
+        .catch((err) => {
+            console.log('promise rejected', err);
+        })
+};
+
+exports.admin_page_json = function(req, res) {
+    db.getAllEntries()
+        .then((list) => {
+            res.send(list);
+            console.log(list);
+            console.log('json endpoint set up');
+        })
+        .catch((err) => {
+            console.log('promise rejected', err);
+        })
+}
+
+exports.add_dish_page = function(req, res) {
     res.render('add-dish', {
         'title': 'Add a new dish'
     })
 };
 
-exports.post_login_entry = function(req, res) {
-    console.log('processing post_login_entry controller');
-    if (!req.body.username || req.body.password) {
-        response.status(400).send("Entries must have a request.");
+exports.post_dish_entry = function(req, res) {
+    console.log('processing post_dish_entry controller');
+    if (!req.body.name) {
+        response.status(400).send("Error - Dish must have name.");
         return;
     }
-    db.addUsers(req.body.username, req.body.password);
-    res.redirect('/');
-};
+    db.addEntry(req.body.name, req.body.description, req.body.type, req.body.price, req.body.special, req.body.ingredients, req.body.allergies);
+    res.redirect('/admin');
+}

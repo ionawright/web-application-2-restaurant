@@ -14,7 +14,11 @@ router.get('/menu-dinner', controller.dinner_page);
 
 
 router.get('/login', controller.login_page);
+router.post('/login', controller.post_login_entry);
+
+router.get('/add-dish', controller.dish_page);
 // router.post('/add-dish', controller.post_new_entry);
+
 // router.post('/edit-dish');
 // router.post('/add-blog-post');
 // router.post('/edit-blog-post');

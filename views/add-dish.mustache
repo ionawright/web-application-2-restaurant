@@ -12,10 +12,18 @@
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:white">
-                <div class="container">
-                    <a class="navbar-brand" href="#!">LOGO</a>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#597057">
+            <div class="container">
+                <a class="navbar-brand" href="#!">LOGO</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-b`s-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/admin">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/add-dish">Add Dish</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/add-post">Add Blog</a></li>
+                    </ul>
                 </div>
+            </div>
         </nav>
        
         <section class="py-5">
@@ -27,66 +35,70 @@
                             <br>
                             <br>
                             <div class="form-group">
-                                <label for="exampleFormControlInput1">Dish Name: </label>
-                                <input type="dish-name" class="form-control" id="exampleFormControlInput1">
+                                <label for="name">Dish Name: </label>
+                                <input type="text" class="form-control" id="name" name="name">
                             </div>
                             <br>
                             <br>
                             <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Description:</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <label for="description">Description:</label>
+                                <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
                             </div>
                             <br>
                             <br>
                             <div class="form-group">
-                                <label for="exampleFormControlSelect1">Dish Type:</label>
-                                <select class="form-control" id="exampleFormControlSelect1">
+                                <label for="type">Dish Type:</label>
+                                <select class="form-control" id="type" name="type" required>
                                     <option>Lunch</option>
                                     <option>Dinner</option>
                                 </select>
                             </div>
                             <br>
                             <br>
-                            <div class="form-group">
-                                <label for="exampleFormControlInput1">Price: </label>
-                                <input type="price" class="form-control" id="exampleFormControlInput1">
+                            <label for="price">Price: </label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">£</span>
+                                <input type="text" class="form-control" id="price" name="price" aria-label="price" required>
                             </div>
                             <br>
                             <br>
-                            <label for="exampleFormControlInput1">Special: </label>
+                            <label for="special">Special: </label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
+                                <input class="form-check-input" type="radio" name="special" id="special-yes" value="yes">
+                                <label class="form-check-label" for="special">
                                     Yes
                                 </label>
                                 </div>
                                 <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                                <label class="form-check-label" for="flexRadioDefault2">
+                                <input class="form-check-input" type="radio" name="special" id="special-no" value="no" checked>
+                                <label class="form-check-label" for="special">
                                     No
                                 </label>
                             </div>
                             <br>
                             <br>
                             <div class="form-group">
-                                <label for="exampleFormControlInput1">Ingredients: </label>
-                                <input type="ingredients" class="form-control" id="exampleFormControlInput1">
+                                <label for="ingredients">Ingredients: </label>
+                                <input type="text" class="form-control" id="ingredients" name="ingredients" required>
                             </div>
                             <br>
                             <br>
-                            <label for="exampleFormControlInput1">Allergies: </label>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    Vegan
-                                </label>
+                            <label for="allergies">Allergies: </label>
+                            <br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="vegan" value="vegan" name="allergies">
+                                <label class="form-check-label" for="allergies">Vegan</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="veggie" value="veggie" name="allergies">
+                                <label class="form-check-label" for="allergies">Vegeterian</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="nuts" value="nuts" name="allergies">
+                                <label class="form-check-label" for="allergies">Contains nuts</label>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                <label class="form-check-label" for="flexCheckChecked">
-                                    Vegeterian
-                                </label>
-                            </div>
+                            <br>
+                            <br>
                             <br>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form> 
@@ -97,7 +109,7 @@
             </div>
         </section>
 
-        <footer class="py-5 bg-dark">
+        <footer class="py-5" style="background-color:#597057">
             <div class="container"><p class="m-0 text-white">Copyright &copy; Iona Wright 2022</p></div>
         </footer>
 

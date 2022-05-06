@@ -4,7 +4,7 @@ const db = new restaurantDAO();
 
 const { redirect } = require("express/lib/response");
 
-// db.init();
+db.init();
 
 exports.about_page = function(req, res) {
     res.render('about', {
@@ -40,4 +40,20 @@ exports.login_page = function(req, res) {
     res.render('login', {
         'title': 'Login'
     })
+};
+
+exports.dish_page = function(req, res) {
+    res.render('add-dish', {
+        'title': 'Add a new dish'
+    })
+};
+
+exports.post_login_entry = function(req, res) {
+    console.log('processing post_login_entry controller');
+    if (!req.body.username || req.body.password) {
+        response.status(400).send("Entries must have a request.");
+        return;
+    }
+    db.addUsers(req.body.username, req.body.password);
+    res.redirect('/');
 };

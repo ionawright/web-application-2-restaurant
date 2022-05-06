@@ -14,10 +14,13 @@ router.get('/menu-dinner', controller.dinner_page);
 
 
 router.get('/login', controller.login_page);
-router.post('/login', controller.post_login_entry);
+// router.post('/login', controller.post_login_entry);
 
-router.get('/add-dish', controller.dish_page);
-// router.post('/add-dish', controller.post_new_entry);
+router.get('/admin', controller.admin_page);
+router.get('/json', controller.admin_page_json);  
+
+router.get('/add-dish', controller.add_dish_page);
+router.post('/add-dish', controller.post_dish_entry);
 
 // router.post('/edit-dish');
 // router.post('/add-blog-post');

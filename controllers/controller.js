@@ -9,8 +9,8 @@ db.init();
 
 exports.about_page = function(req, res) {
     res.render('about', {
-        'title': 'About Us',
-    })
+        'title': 'About Us'
+    });
 };
 
 exports.lunch_page = function(req, res) {
@@ -68,8 +68,7 @@ exports.handle_login = function (req, res) {
         return;
     }
     res.render('admin', {
-        title: 'Admin',
-        user: 'user'
+        title: 'Admin'
     });
     db.createUser(req.body.username, req.body.password)
     res.redirect('/admin');

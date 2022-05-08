@@ -9,7 +9,8 @@ class UserDAO {
         } else {
             this.db = new Datastore();
         }
-    }
+    };
+
     init() {
         this.db.insert({
             user: 'admin',
@@ -39,19 +40,21 @@ class UserDAO {
         });
     };
 
-    lookup(user, cb) {
-        this.db.find({'user': user}, function (err, entries) {
-        if (err) {
-            return cb(null, null);
-        } else {
-            if (entries.length == 0) {
-                return cb(null, null);
-            }
-                return cb(null, entries[0]);
-            }
-        });
+    lookup(user) {
+        return new Promise((resolve, reject) => {
+            console.log("Looking up user...", user)
+            this.db.find({ 'user': user }, function (err, data) {
+                if (err) {
+                    reject(err)
+                    console.log("Error finding user", user)
+                } else {
+                    resolve(data)
+                    console.log('Success! Admin logged in')
+                }
+            });
+        })
     }
-};
+}
 
 const dao = new UserDAO();
 dao.init();

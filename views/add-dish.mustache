@@ -1,37 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Arlo's Restaurant</title>
-
-        <link rel="icon" type="image/x-icon" href="#" />
-
-        <link href="css/styles.css" rel="stylesheet" />
+        {{>header}}
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#597057">
-            <div class="container">
-                <a class="navbar-brand" href="#!">LOGO</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-b`s-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/admin">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/add-dish">Add Dish</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/add-post">Add Blog</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-       
+        {{>adminNavBar}}
         <section class="py-5">
             <div class="container my-5" style="height: 60rem">
                 <div class="row justify-content">
                     <div class="col-lg-6">
                         <h2>{{title}}</h2>
-                        <form method="post" role="form">
+                        <form method="post" role="form" action="/admin">
                             <br>
                             <br>
                             <div class="form-group">

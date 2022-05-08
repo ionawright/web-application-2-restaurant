@@ -10,12 +10,6 @@ class Restaurant {
         }
     }
     init() {
-        // this.db.insert({
-        //     user: {
-        //         username: "admin",
-        //         password:  "password"
-        //     }
-        // })
         this.db.insert({
                 name: "Smoked Salmon",
                 description: "Smoked salmon, buttermilk dressing, pickled radish & apple, wild garlic oil.",
@@ -25,7 +19,7 @@ class Restaurant {
                 special: 'No',
                 type: 'lunch'
         });
-        console.log("Lunch inserted into DB")
+        console.log("dish 1 inserted into DB")
         this.db.insert({
                 name: "Roast breast of chicken",
                 description: "Salt & pepper greens, smoked butter mash, Caramelised shallot, red wine jus.",
@@ -35,7 +29,7 @@ class Restaurant {
                 special: 'No',
                 type: 'dinner'
         });
-        console.log("Dinner inserted into DB")
+        console.log("dish 2 inserted into DB")
         this.db.insert({
                 name: "White chocolate and raspberry cheesecake",
                 description: "Creme cheese topping with white chocolate.",
@@ -45,9 +39,39 @@ class Restaurant {
                 ingredients: [],
                 allergies: []
         });
-        console.log("Dessert inserted into DB")
-        
-    }
+        console.log("dish 3 inserted into DB")
+        this.db.insert({
+            name: "Farmhouse Salad",
+            description: "Our famous house salad that is filled with our fresh, home grown vegetables and fruits.",
+            allergies: ["Vegeterian"],
+            ingredients: ["Lettuce", "Spinach", "Rocket", "radish", "apple", "sesames"],
+            price: 7.99,
+            special: 'Yes',
+            type: 'lunch'
+        });
+        console.log("dish 4 inserted into DB")
+        this.db.insert({
+                name: "Pesto pasta",
+                description: "Creamy red pesto penne pasta with tomato, garlic, peppers and rocket. Topped with cheese",
+                allergies: ["Contains nuts", "Vegeterian"],
+                ingredients: ["pesto", "pine nuts", "peppers", "cream"],
+                price: 12.95,
+                special: 'No',
+                type: 'dinner'
+        });
+        console.log("dish 5 inserted into DB")
+        this.db.insert({
+                name: "Tomato Soup",
+                description: "Creamy tomato soup with chorizo and roasted red peppers",
+                type: 'lunch',
+                price: 6.95,
+                special: 'No',
+                ingredients: ["tomato", "chorizo", "peppers"],
+                allergies: []
+        });
+        console.log("dish 6 inserted into DB")
+    };
+
     getData() {
         return new Promise((resolve, reject) => {
             this.db.find({}, function(err, data) {
@@ -59,22 +83,7 @@ class Restaurant {
                 }
             })
         })
-    }
-
-    // addUsers(username, password) {
-    //     var entry = {
-    //             username: username,
-    //             password: password,
-    //     }
-    //     console.log('user created', entry);
-    //     this.db.insert(entry, function(err, user) {
-    //             if (err) {
-    //                 console.log('Error inserting user', subject);
-    //                 } else {
-    //                 console.log('user inserted into the database', user);
-    //             }
-    //     }) 
-    //  } 
+    };
 
     addEntry(name, description, type, price, special, ingredients, allergies) {
         var entry = {
@@ -94,26 +103,43 @@ class Restaurant {
                     console.log('Success - data inserted into the database', data);
                 }
         }) 
-     }  
+     };
 
-     getAllEntries() {
-        //return a Promise object, which can be resolved or rejected
+    getEntry(id) {
         return new Promise((resolve, reject) => {
-            //use the find() function of the database to get the data,
-            //error first callback function, err for error, entries for data
-            this.db.find({}, function(err, dishes) {
-                //if error occurs reject Promise
+            this.db.find({ _id: id }, function(err, data) {
                 if (err) {
                     reject(err);
-                //if no error resolve the promise & return the data
                 } else {
-                    resolve(dishes);
-                    //to see what the returned data looks like
-                    console.log('function all() returns: ', dishes);
+                    resolve(data);
+                    console.log('Get entry: ', data);
                 }
             })
         })
-    }
+    };
+
+    getAllEntries() {
+        return new Promise((resolve, reject) => {
+            this.db.find({}, function(err, data) {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(data);
+                    console.log('Get all entries: ', data);
+                }
+            })
+        })
+    };
+
+    deleteEntry(id) {
+        this.db.remove(id, function(req, data) {
+            if (err) {
+                console.log("Error deleting", id);
+            } else {
+                console.log('Success in deleting', data)
+            }
+        })
+    };
 };
 
 module.exports = Restaurant;

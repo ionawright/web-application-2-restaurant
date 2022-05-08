@@ -13,15 +13,31 @@ exports.about_page = function(req, res) {
 };
 
 exports.lunch_page = function(req, res) {
-    res.render('menu-lunch', {
-        'title': 'Lunch Menu'
-    })
+    db.getAllEntries()
+        .then((list) => {
+            res.render('menu-lunch', {
+                'title': 'Lunch Menu',
+                'menuLunch': list
+            });
+            console.log('promise resolved');
+        })
+        .catch((err) => {
+            console.log('promise rejected', err);
+        })
 };
 
 exports.dinner_page = function(req, res) {
-    res.render('menu-dinner', {
-        'title': 'Dinner Menu'
-    })
+    db.getAllEntries()
+        .then((list) => {
+            res.render('menu-dinner', {
+                'title': 'Dinner Menu',
+                'menuDinner': list
+            });
+            console.log('promise resolved');
+        })
+        .catch((err) => {
+            console.log('promise rejected', err);
+        })
 };
 
 exports.news_page = function(req, res) {
@@ -41,6 +57,60 @@ exports.login_page = function(req, res) {
         'title': 'Login'
     })
 };
+
+// exports.show_login = function (req, res) {
+//     res.render("user/login");
+//   };
+  
+//   exports.handle_login = function (req, res) {
+//     // res.redirect("/new");
+//     res.render("newEntry", {
+//       title: "Guest Book",
+//       user: "user"
+//     });
+//   };
+
+// exports.show_register_page = function (req, res) {
+//     res.render("user/register");
+//   };
+  
+//   exports.post_new_user = function (req, res) {
+//     const user = req.body.username;
+//     const password = req.body.pass;
+  
+//     if (!user || !password) {
+//       res.send(401, "no user or no password");
+//       return;
+//     }
+//     userDao.lookup(user, function (err, u) {
+//       if (u) {
+//         res.send(401, "User exists:", user);
+//         return;
+//       }
+//       userDao.create(user, password);
+//       console.log("register user", user, "password", password);
+//       res.redirect("/login");
+//     });
+//   };
+  
+//   exports.loggedIn_landing = function (req, res) {
+//     db.getAllEntries()
+//       .then((list) => {
+//         res.render("entries", {
+//           title: "Guest Book",
+//           user: "user",
+//           entries: list,
+//         });
+//       })
+//       .catch((err) => {
+//         console.log("promise rejected", err);
+//       });
+//   };
+  
+//   exports.logout = function (req, res) {
+//     res.clearCookie("jwt").status(200).redirect("/");
+//   };
+  
 
 // exports.post_login_entry = function(req, res) {
 //     console.log('processing post_login_entry controller');
@@ -95,20 +165,26 @@ exports.post_dish_entry = function(req, res) {
 };
 
 exports.edit_dish_page = function(req, res) {
-    res.render('edit-dish', {
-        'title': 'Edit dish'
-    })
-}
+    console.log('processing get entry controller ', req.body._id);
+    db.getEntry(req.body._id)
+        .then((entry) => {
+            res.render('edit-dish', {
+                'title': 'Edit Dish',
+                'dish': entry
+            });
+            console.log('promise resolved');
+        })
+        .catch((err) => {
+            console.log('promise rejected', err);
+        })
+};
 
-exports.delete_dish= function(req, res) {
-    db.serialize(() => {
-        db.run('DELETE FROM emp WHERE id=?', req.body.id, function(err) {
-            if (err) {
-                res.send("Error deleting");
-                return console.error(err.message)
-            }
-            res.send("Entry deleted successfully");
-            console.log("Entry deleted successfully");
-        });
-    });
-}
+exports.delete_dish = function(req, res) {
+    console.log('processing delete controller');
+    if (!req.body._id) {
+        response.status(404).send("Not found - must have an ID");
+        return;
+    }
+    db.deleteEntry(req.body._id)
+    res.redirect('/admin')
+};

@@ -1,6 +1,7 @@
 const express = require('express');
 // var cors = require('cors')
 const app = express();
+// require('dotenv').config() // loads data from .env file
 
 app.use(express.urlencoded({extended: false }));
 // app.use(cors())

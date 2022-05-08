@@ -15,15 +15,15 @@
                 <br>
                 <br>
                 <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <input class="form-control me-2" type="search" placeholder="Search functionality coming soon..." aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit" disabled>Search</button>
                 </form>
             </div>
         </section>
 
         <section class="py-5">
         <div class="container my-5">
-            <div class="row">
+        <div class="row">
         {{#admin}}
             <div class="col" style="padding-bottom: 1rem;">
             <div class="card" style="width: 20rem;">
@@ -31,7 +31,10 @@
                     <h5 class="card-title">{{name}}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{type}} £{{price}}</h6>
                     <p class="card-text">{{description}}</p>
-                    <a href="/edit-dish" class="card-link">Edit</a>
+                    <button type="button" class="btn btn-outline-primary" href="/edit-dish" disabled>Edit</button>
+                                        <button type="button" class="btn btn-outline-danger" href="/edit-dish" disabled>Delete</button>
+                    <br>
+                    <br>
                 </div>
             </div>
             </div>

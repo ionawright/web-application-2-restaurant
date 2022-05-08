@@ -2,7 +2,7 @@
 const restaurantDAO = require('../models/model');
 const db = new restaurantDAO();
 
-const { redirect } = require("express/lib/response");
+// const { redirect } = require("express/lib/response");
 
 db.init();
 

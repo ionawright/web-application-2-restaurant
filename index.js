@@ -17,7 +17,7 @@ const mustache = require('mustache-express');
 app.engine('mustache', mustache());
 app.set('view engine', 'mustache');
 
-const router = require('./routes');
+const router = require('./src/routes.js');
 app.use('/', router);
 
 const PORT = process.env.PORT || 3000;

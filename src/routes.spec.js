@@ -43,6 +43,50 @@ describe('Test Routes ', () => {
     //     expect(res.render.mock.calls[0][0]).toBe('menu-dinner');
     // });
 
+    it('should render the register page route', () => {
+        const req = {};
+        const res = { render: jest.fn()}
+        controller.show_register_page(req, res);
+        expect(res.render.mock.calls.length).toBe(1);
+        expect(res.render.mock.calls[0][0]).toBe('register');
+    });
+
+
+    it('should render the login page route', () => {
+        const req = {};
+        const res = { render: jest.fn()}
+        controller.login_page(req, res);
+        expect(res.render.mock.calls.length).toBe(1);
+        expect(res.render.mock.calls[0][0]).toBe('login');
+    });
+
+
+    // it('should render the admin page route', () => {
+    //     const req = {};
+    //     const res = { render: jest.fn()}
+    //     controller.admin_page(req, res);
+    //     expect(res.render.mock.calls.length).toBe(1);
+    //     expect(res.render.mock.calls[0][0]).toBe('admin');
+    // });
+
+
+    it('should render the add dish page route', () => {
+        const req = {};
+        const res = { render: jest.fn()}
+        controller.add_dish_page(req, res);
+        expect(res.render.mock.calls.length).toBe(1);
+        expect(res.render.mock.calls[0][0]).toBe('add-dish');
+    });
+
+
+    // it('should render the edit dish page route', () => {
+    //     const req = {};
+    //     const res = { render: jest.fn()}
+    //     controller.edit_dish_page(req, res);
+    //     expect(res.render.mock.calls.length).toBe(1);
+    //     expect(res.render.mock.calls[0][0]).toBe('edit-dish');
+    // });
+
     it('should render 404 not found', () => {
         const req = {};
         const res = { status: jest.fn(), type: jest.fn(), send: jest.fn()}

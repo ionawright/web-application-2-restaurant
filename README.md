@@ -26,6 +26,8 @@ The command will run all tests in the command line and print out the result repo
 
 ## HOW TO RUN ACCEPTANCE TESTS
 
+`npm run cypress:open`
+
 ## DEVELOPMENT CHANGES
 
 Public: 

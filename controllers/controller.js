@@ -92,4 +92,23 @@ exports.post_dish_entry = function(req, res) {
     }
     db.addEntry(req.body.name, req.body.description, req.body.type, req.body.price, req.body.special, req.body.ingredients, req.body.allergies);
     res.redirect('/admin');
+};
+
+exports.edit_dish_page = function(req, res) {
+    res.render('edit-dish', {
+        'title': 'Edit dish'
+    })
+}
+
+exports.delete_dish= function(req, res) {
+    db.serialize(() => {
+        db.run('DELETE FROM emp WHERE id=?', req.body.id, function(err) {
+            if (err) {
+                res.send("Error deleting");
+                return console.error(err.message)
+            }
+            res.send("Entry deleted successfully");
+            console.log("Entry deleted successfully");
+        });
+    });
 }

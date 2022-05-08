@@ -38,7 +38,7 @@ class Restaurant {
         console.log("Dinner inserted into DB")
         this.db.insert({
                 name: "White chocolate and raspberry cheesecake",
-                description: "Creame cheese topping with white chocolate and .",
+                description: "Creme cheese topping with white chocolate.",
                 type: 'dinner',
                 price: 6.95,
                 special: 'No',

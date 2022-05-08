@@ -22,12 +22,24 @@ router.get('/json', controller.admin_page_json);
 router.get('/add-dish', controller.add_dish_page);
 router.post('/add-dish', controller.post_dish_entry);
 
-// router.post('/edit-dish');
+router.get('/edit-dish', controller.edit_dish_page);
+router.post('/edit-dish', controller.post_dish_entry);
+
+router.post('/delete', function(req, res) {
+    db.serialize(() => {
+        db.run('DELETE FROM emp WHERE id=?', req.body.id, function(err) {
+            if (err) {
+                res.send("Error deleting");
+                return console.error(err.message)
+            }
+            res.send("Entry deleted successfully");
+            console.log("Entry deleted successfully");
+        });
+    });
+});
 // router.post('/add-blog-post');
 // router.post('/edit-blog-post');
 
-
-// router.get('/json', controller.show_json);  
 
 router.use(function(req, res) {
         res.status(404);

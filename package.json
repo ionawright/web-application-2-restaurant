@@ -16,9 +16,14 @@
   ],
   "author": "Iona Wright",
   "license": "ISC",
+  "engines": {
+    "node": "17.0.1"
+  },
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "bootstrap": "^5.1.3",
     "express": "^4.18.0",
+    "jsonwebtoken": "^8.5.1",
     "mustache-express": "^1.3.2",
     "nodemon": "^2.0.15",
     "path": "^0.12.7",

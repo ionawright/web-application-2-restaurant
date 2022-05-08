@@ -19,9 +19,9 @@ app.set('view engine', 'mustache');
 const router = require('./routes');
 app.use('/', router);
 
-const port = process.env.PORT || 3000;
-app.listen(port, () =>
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () =>
   console.log(
-    `Application started on http://localhost:${port}`
+    `Application started on http://localhost:${PORT}`
   )
 );

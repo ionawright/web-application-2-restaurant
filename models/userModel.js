@@ -5,25 +5,22 @@ const saltRounds = 10;
 class UserDAO {
     constructor(dbFilePath) {
         if (dbFilePath) {
-            //embedded
-            this.db = new Datastore({ filename: dbFilePath,
-            autoload: true });
+            this.db = new Datastore({ filename: dbFilePath, autoload: true });
         } else {
-            //in memory
             this.db = new Datastore();
         }
     }
-    // for the demo the password is the bcrypt of the user name
     init() {
         this.db.insert({
-            user: 'Peter',
-            password:
-            '$2b$10$I82WRFuGghOMjtu3LLZW9OAMrmYOlMZjEEkh.vx.K2MM05iu5hY2C'
+            user: 'admin',
+            password: 'password'
         });
+        console.log("Admin user inserted");
         this.db.insert({
-            user: 'Ann',
-            password: '$2b$10$bnEYkqZM.MhEF/LycycymOeVwkQONq8kuAUGx6G5tF9UtUcaYDs3S'
+            user: 'user',
+            password: 'password'
         });
+        console.log("User inserted");
         return this;
     }
     create(username, password) {
@@ -35,7 +32,7 @@ class UserDAO {
             };
             that.db.insert(entry, function (err) {
             if (err) {
-            console.log("Can't insert user: ", username);
+                console.log("Can't insert user: ", username);
             }
             });
         });
@@ -52,7 +49,8 @@ class UserDAO {
             }
         });
     }
-}
+};
+
 const dao = new UserDAO();
 dao.init();
 

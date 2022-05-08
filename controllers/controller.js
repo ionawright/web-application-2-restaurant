@@ -1,10 +1,11 @@
 // determines what response to send back to a user when a user makes a browser request.
 const restaurantDAO = require('../models/model');
+const userDao = require("../models/userModel.js");
+
 const db = new restaurantDAO();
-
-// const { redirect } = require("express/lib/response");
-
 db.init();
+
+// Unauthenticated routes:
 
 exports.about_page = function(req, res) {
     res.render('about', {
@@ -52,82 +53,57 @@ exports.contact_page = function(req, res) {
     })
 };
 
+// Authenticated Routes 
+
 exports.login_page = function(req, res) {
     res.render('login', {
         'title': 'Login'
     })
 };
 
-// exports.show_login = function (req, res) {
-//     res.render("user/login");
-//   };
-  
-//   exports.handle_login = function (req, res) {
-//     // res.redirect("/new");
-//     res.render("newEntry", {
-//       title: "Guest Book",
-//       user: "user"
-//     });
-//   };
+exports.handle_login = function (req, res) {
+    res.render('admin', {
+        title: 'Admin',
+        user: 'user'
+    });
+};
 
-// exports.show_register_page = function (req, res) {
-//     res.render("user/register");
-//   };
-  
-//   exports.post_new_user = function (req, res) {
-//     const user = req.body.username;
-//     const password = req.body.pass;
-  
-//     if (!user || !password) {
-//       res.send(401, "no user or no password");
-//       return;
-//     }
-//     userDao.lookup(user, function (err, u) {
-//       if (u) {
-//         res.send(401, "User exists:", user);
-//         return;
-//       }
-//       userDao.create(user, password);
-//       console.log("register user", user, "password", password);
-//       res.redirect("/login");
-//     });
-//   };
-  
-//   exports.loggedIn_landing = function (req, res) {
-//     db.getAllEntries()
-//       .then((list) => {
-//         res.render("entries", {
-//           title: "Guest Book",
-//           user: "user",
-//           entries: list,
-//         });
-//       })
-//       .catch((err) => {
-//         console.log("promise rejected", err);
-//       });
-//   };
-  
-//   exports.logout = function (req, res) {
-//     res.clearCookie("jwt").status(200).redirect("/");
-//   };
-  
+exports.show_register_page = function (req, res) {
+    res.render('register', {
+        title: 'Register User'
+    });
+};
 
-// exports.post_login_entry = function(req, res) {
-//     console.log('processing post_login_entry controller');
-//     if (!req.body.username || req.body.password) {
-//         response.status(400).send("Entries must have a request.");
-//         return;
-//     }
-//     db.addUsers(req.body.username, req.body.password);
-//     res.redirect('/');
-// };
+exports.post_new_user = function (req, res) {
+    const user = req.body.username;
+    const password = req.body.pass;
+  
+    if (!user || !password) {
+      res.send(401, "no user or password provided");
+      return;
+    }
+    userDao.lookup(user, function (err, u) {
+      if (u) {
+        res.send(401, "User exists:", user);
+        return;
+      }
+      userDao.create(user, password);
+      console.log("register user", user, "password", password);
+      res.redirect("/login");
+    });
+  };
+
+exports.logout = function (req, res) {
+    res.clearCookie("jwt").status(200).redirect("/");
+};
 
 exports.admin_page = function(req, res) {
     db.getAllEntries()
         .then((list) => {
             res.render('admin', {
-                'title': 'Admin',
-                'admin': list
+                title: 'Admin',
+                user: "user",
+                admin: list
             });
             console.log('promise resolved');
         })

@@ -1,4 +1,4 @@
-import homePage from './pages/dataSelectors.js';
+import homePage from './pages/homePage.js';
 
 describe('Restaurant Homepage', () => {
     
@@ -10,6 +10,8 @@ describe('Restaurant Homepage', () => {
         homePage.contactLink().should('be.visible');
         homePage.menuDropdown().should('be.visible').click();
         homePage.lunchLink().should('be.visible').click();
+        homePage.menuDropdown().should('be.visible').click();
+        homePage.dinnerLink().should('be.visible').click();
     });
 
   })

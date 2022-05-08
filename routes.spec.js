@@ -43,13 +43,13 @@ describe('Test Routes ', () => {
     //     expect(res.render.mock.calls[0][0]).toBe('menu-dinner');
     // });
 
-    it('should render the register page route', () => {
-        const req = {};
-        const res = { render: jest.fn()}
-        controller.show_register_page(req, res);
-        expect(res.render.mock.calls.length).toBe(1);
-        expect(res.render.mock.calls[0][0]).toBe('register');
-    });
+    // it('should render the register page route', () => {
+    //     const req = {};
+    //     const res = { render: jest.fn()}
+    //     controller.show_register_page(req, res);
+    //     expect(res.render.mock.calls.length).toBe(1);
+    //     expect(res.render.mock.calls[0][0]).toBe('register');
+    // });
 
 
     it('should render the login page route', () => {

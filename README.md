@@ -1,5 +1,5 @@
 ## HEROKU LINK
-https://web-application-cw-2.herokuapp.com/ 
+https://web-application-cw-2.herokuapp.com/
 
 
 ## INTRO
@@ -51,3 +51,12 @@ Checkout the .nvmrc file for the up to date version used in this repo.
 
 To find out more information please read the docs here:
 https://github.com/nvm-sh/nvm/blob/master/README.md#installing-and-updating 
+
+
+## DEPLOYING TO HEROKU
+
+`heroku login`
+`heroku create`
+`git push heroku master`
+`heroku ps:scale web=1`
+`heroku open`

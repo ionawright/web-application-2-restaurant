@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [
     "node.js",
@@ -33,5 +33,8 @@
     "nodemon": "^2.0.16",
     "path": "^0.12.7",
     "startbootstrap-full-width-pics": "^5.0.5"
+  },
+  "devDependencies": {
+    "jest": "^28.1.0"
   }
 }

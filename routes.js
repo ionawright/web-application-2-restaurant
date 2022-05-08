@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('./controllers/controller')
-const { login } = require('./auth/auth')
-const { verify } = require('./auth/auth')
+const controller = require('./controllers/controller');
+const { login } = require('./auth/auth');
+// const { verify } = require('./auth/auth');
+// Unable to get the authentication to work - verify commented out
 
 router.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, './public/index.html'))

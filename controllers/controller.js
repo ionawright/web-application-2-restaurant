@@ -170,3 +170,15 @@ exports.delete_dish = function(req, res) {
     db.deleteEntry(req.body._id)
     res.redirect('/admin')
 };
+
+exports.notFound = function(req, res) {
+    res.status(404);
+    res.type('text/plain');
+    res.send('404 Not Found.');
+};
+
+exports.serverError = function(req, res) {
+    res.status(500);
+    res.type('text/plain');
+    res.send('Internal Server Error.');
+};

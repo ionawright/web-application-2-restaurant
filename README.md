@@ -20,6 +20,10 @@ This repo is primary for the web application and will use:
 
 ## HOW TO RUN UNIT TESTS
 
+`npm run test`
+
+The command will run all tests in the command line and print out the result report.
+
 ## HOW TO RUN ACCEPTANCE TESTS
 
 ## DEVELOPMENT CHANGES

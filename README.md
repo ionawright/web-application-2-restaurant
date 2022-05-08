@@ -30,21 +30,46 @@ The command will run all tests in the command line and print out the result repo
 
 ## DEVELOPMENT CHANGES
 
-Public: 
+Unauthenticated:
 
 - HomePage:
 - AboutPage:
-- LunchPage:
-- DinnerPage:
-- NewsPage:
+
+- Lunch/Dinner Pages:
+Better layout for the menus - filter them to be starters, mains & desserts.
+
+- NewsPage: 
+Implemented the CRUD functionality for a user.
+
 - ContactPage:
 
-Admin:
+Authenticated:
+
+- Admin Nav Bar:
+Due to incomplete actions I have made the edit dish page available in the nav bar but this would be used in the card of the dish.
 
 - Login:
+Due to the incomplete actions I have left this open so that you can navigate through the other pages that would only be available if authenticated. Unable to get this to submit and authenticate the user.
+
 - Admin HomePage:
-- Add Dish:
-- Add Blog:
+Wanted to implement a search functionality for the dishes (making it easier for the user).
+
+- Add/Edit Dish:
+Add: Yes
+Edit: No
+Delete: No
+
+- Add/Edit Blog:
+Not viewable as I didn't implement in time.
+
+Other:
+
+- Code Structure:
+Should have put MVC's in a /src folder to begin with, easier to read.
+
+- Tests:
+Cypress: I would of implemented this better for adding/editing a dish.
+Unit: More added.
 
 ## NODE VERSION
 Checkout the .nvmrc file for the up to date version used in this repo.

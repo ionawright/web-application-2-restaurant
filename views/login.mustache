@@ -4,18 +4,13 @@
         {{>header}}
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#597057">
-                <div class="container">
-                    <a class="navbar-brand" href="/login">LOGO</a>
-                </div>
-        </nav>
-       
+       {{>adminNavBar}}
         <section class="py-5">
             <div class="container my-5" style="height: 40rem">
                 <div class="row justify-content">
                     <div class="col-lg-6">
                         <h2>{{title}}</h2>
-                        <form method="post" role="form">
+                        <form method="post" role="form" action="/admin">
                             <br>
                             <br>
                             <div class="form-group">

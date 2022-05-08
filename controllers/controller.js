@@ -62,10 +62,17 @@ exports.login_page = function(req, res) {
 };
 
 exports.handle_login = function (req, res) {
+    console.log('processing handle login controller');
+    if (!req.body.username) {
+        response.status(404).send("Error - username or password not found");
+        return;
+    }
     res.render('admin', {
         title: 'Admin',
         user: 'user'
     });
+    db.createUser(req.body.username, req.body.password)
+    res.redirect('/admin');
 };
 
 exports.show_register_page = function (req, res) {
@@ -82,8 +89,8 @@ exports.post_new_user = function (req, res) {
       res.send(401, "no user or password provided");
       return;
     }
-    userDao.lookup(user, function (err, u) {
-      if (u) {
+    userDao.lookup(user, function (err, data) {
+      if (data) {
         res.send(401, "User exists:", user);
         return;
       }
@@ -93,9 +100,9 @@ exports.post_new_user = function (req, res) {
     });
   };
 
-exports.logout = function (req, res) {
-    res.clearCookie("jwt").status(200).redirect("/");
-};
+// exports.logout = function (req, res) {
+//     res.clearCookie("jwt").status(200).redirect("/");
+// };
 
 exports.admin_page = function(req, res) {
     db.getAllEntries()

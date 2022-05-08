@@ -22,21 +22,23 @@ class UserDAO {
         });
         console.log("User inserted");
         return this;
-    }
-    create(username, password) {
-        const that = this;
-        bcrypt.hash(password, saltRounds).then(function(hash) {
-            var entry = {
-                user: username,
-                password: hash,
-            };
-            that.db.insert(entry, function (err) {
+    };
+
+    createUser(username, password) {
+        var entry = {
+            user: username,
+            password: password,
+        };
+        console.log("user created", entry)
+        this.db.insert(entry, function (err, data) {
             if (err) {
-                console.log("Can't insert user: ", username);
+                console.log("Can't insert user: ", data);
+            } else {
+                console.log('Success - user inserted', data)
             }
-            });
         });
-    }
+    };
+
     lookup(user, cb) {
         this.db.find({'user': user}, function (err, entries) {
         if (err) {

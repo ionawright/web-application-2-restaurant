@@ -16,13 +16,16 @@ router.get('/menu-dinner', controller.dinner_page);
 
 router.get('/register', controller.show_register_page);
 router.post('/register', controller.post_new_user);
+
 router.get('/login', controller.login_page);
 router.post('/login', login, controller.handle_login);
-router.get("/logout", controller.logout);
 
-router.get('/admin', verify, controller.admin_page);
+// router.get("/logout", controller.logout);
+
 router.get('/json', controller.admin_page_json);  
+router.get('/admin', verify, controller.admin_page);
 router.post('/admin', controller.delete_dish);
+
 router.get('/add-dish', controller.add_dish_page);
 router.post('/add-dish', controller.post_dish_entry);
 router.get('/edit-dish', controller.edit_dish_page);

@@ -1,10 +1,11 @@
 const express = require('express');
-// var cors = require('cors')
 const app = express();
-// require('dotenv').config() // loads data from .env file
+require('dotenv').config();
 
-app.use(express.urlencoded({extended: false }));
-// app.use(cors())
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+
+app.use(express.urlencoded({ extended: false }));
 
 const path = require('path');
 const public = path.join(__dirname,'public');

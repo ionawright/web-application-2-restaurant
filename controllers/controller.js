@@ -108,7 +108,6 @@ exports.admin_page = function(req, res) {
         .then((list) => {
             res.render('admin', {
                 title: 'Admin',
-                user: "user",
                 admin: list
             });
             console.log('promise resolved');

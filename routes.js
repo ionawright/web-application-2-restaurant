@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const controller = require('./controllers/controller');
-const { login } = require('./auth/auth');
+// const { login } = require('./auth/auth');
 // const { verify } = require('./auth/auth');
-// Unable to get the authentication to work - verify commented out
+// Unable to get the authentication to work - commented out
 
 router.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, './public/index.html'))
@@ -15,17 +15,17 @@ router.get('/news', controller.news_page);
 router.get('/menu-lunch', controller.lunch_page);
 router.get('/menu-dinner', controller.dinner_page);
 
-router.get('/register', controller.show_register_page);
-router.post('/register', controller.post_new_user);
+// router.get('/register', controller.show_register_page);
+// router.post('/register', controller.post_new_user);
 
 router.get('/login', controller.login_page);
-router.post('/login', login, controller.handle_login);
+// router.post('/login', login, controller.handle_login);
 
 // router.get("/logout", controller.logout);
 
 router.get('/json', controller.admin_page_json);  
 router.get('/admin', controller.admin_page);
-router.post('/admin', controller.delete_dish);
+// router.post('/admin', controller.delete_dish);
 
 router.get('/add-dish', controller.add_dish_page);
 router.post('/add-dish', controller.post_dish_entry);

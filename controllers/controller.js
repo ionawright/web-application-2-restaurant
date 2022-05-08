@@ -61,43 +61,43 @@ exports.login_page = function(req, res) {
     })
 };
 
-exports.handle_login = function (req, res) {
-    console.log('processing handle login controller');
-    if (!req.body.username) {
-        response.status(404).send("Error - username or password not found");
-        return;
-    }
-    res.render('admin', {
-        title: 'Admin'
-    });
-    db.createUser(req.body.username, req.body.password)
-    res.redirect('/admin');
-};
+// exports.handle_login = function (req, res) {
+//     console.log('processing handle login controller');
+//     if (!req.body.username) {
+//         response.status(404).send("Error - username or password not found");
+//         return;
+//     }
+//     res.render('admin', {
+//         title: 'Admin'
+//     });
+//     db.createUser(req.body.username, req.body.password)
+//     res.redirect('/admin');
+// };
 
-exports.show_register_page = function (req, res) {
-    res.render('register', {
-        title: 'Register User'
-    });
-};
+// exports.show_register_page = function (req, res) {
+//     res.render('register', {
+//         title: 'Register User'
+//     });
+// };
 
-exports.post_new_user = function (req, res) {
-    const user = req.body.username;
-    const password = req.body.pass;
+// exports.post_new_user = function (req, res) {
+//     const user = req.body.username;
+//     const password = req.body.pass;
   
-    if (!user || !password) {
-      res.send(401, "no user or password provided");
-      return;
-    }
-    userDao.lookup(user, function (err, data) {
-      if (data) {
-        res.send(401, "User exists:", user);
-        return;
-      }
-      userDao.create(user, password);
-      console.log("register user", user, "password", password);
-      res.redirect("/login");
-    });
-  };
+//     if (!user || !password) {
+//       res.send(401, "no user or password provided");
+//       return;
+//     }
+//     userDao.lookup(user, function (err, data) {
+//       if (data) {
+//         res.send(401, "User exists:", user);
+//         return;
+//       }
+//       userDao.create(user, password);
+//       console.log("register user", user, "password", password);
+//       res.redirect("/login");
+//     });
+//   };
 
 // exports.logout = function (req, res) {
 //     res.clearCookie("jwt").status(200).redirect("/");
@@ -161,15 +161,15 @@ exports.edit_dish_page = function(req, res) {
         })
 };
 
-exports.delete_dish = function(req, res) {
-    console.log('processing delete controller');
-    if (!req.body._id) {
-        response.status(404).send("Not found - must have an ID");
-        return;
-    }
-    db.deleteEntry(req.body._id)
-    res.redirect('/admin')
-};
+// exports.delete_dish = function(req, res) {
+//     console.log('processing delete controller');
+//     if (!req.body._id) {
+//         response.status(404).send("Not found - must have an ID");
+//         return;
+//     }
+//     db.deleteEntry(req.body._id)
+//     res.redirect('/admin')
+// };
 
 exports.notFound = function(req, res) {
     res.status(404);
